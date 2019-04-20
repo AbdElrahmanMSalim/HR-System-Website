@@ -997,3 +997,7 @@
 {"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-20T13:50:52.222Z"}
 {"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-20T14:08:00.058Z"}
 {"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-20T14:08:01.074Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-20T14:36:24.282Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-20T14:36:25.413Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-20T14:37:37.059Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-20T14:37:38.164Z"}
