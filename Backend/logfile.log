@@ -1041,3 +1041,7 @@
 {"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-20T17:43:38.809Z"}
 {"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-20T17:43:39.826Z"}
 {"message":"Converting circular structure to JSON","stack":"TypeError: Converting circular structure to JSON\n    at JSON.stringify (<anonymous>)\n    at stringify (E:\\Programing\\faculty-projects\\HR-System-Website\\Backend\\node_modules\\express\\lib\\response.js:1119:12)\n    at ServerResponse.json (E:\\Programing\\faculty-projects\\HR-System-Website\\Backend\\node_modules\\express\\lib\\response.js:260:14)\n    at ServerResponse.send (E:\\Programing\\faculty-projects\\HR-System-Website\\Backend\\node_modules\\express\\lib\\response.js:158:21)\n    at router.delete (E:\\Programing\\faculty-projects\\HR-System-Website\\Backend\\routes\\users.js:43:7)\n    at process._tickCallback (internal/process/next_tick.js:68:7)","level":"error","timestamp":"2019-04-20T17:43:40.498Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-20T17:44:50.576Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-20T17:44:51.592Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-20T22:40:12.891Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-20T22:40:13.911Z"}
