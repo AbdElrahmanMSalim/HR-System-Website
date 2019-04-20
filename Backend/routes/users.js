@@ -23,13 +23,34 @@ router.post('/', async (req, res) => {
   let user = await User.findOne({ email: req.body.email });
   if (user) return res.status(400).send('User already registered.');
 
-  user = new User(_.pick(req.body, ['name', 'email', 'password', 'rePassword', 'phone']));
+  user = new User(_.pick(req.body, ['name', 'email', 'password', 'phone']));
   // const salt = await bcrypt.genSalt(10);
   // user.password = await bcrypt.hash(user.password, salt);
-  console.log(user)
+  console.log(user);
   await user.save();
 
-  res.send(_.pick(user, ['_id', 'username', 'email']));
+  res.send(_.pick(user, ['_id', 'name', 'email']));
 });
+
+router.put('/', async (req, res) => {
+  const { error } = validate(req.body); 
+  if (error) return res.status(400).send(error.details[0].message);
+
+  if (req.body.password != req.body.rePassword) return res.status(400).send('Password mismatch') //added
+
+  let user = await User.findOneAndUpdate({ email: req.body.email },
+    { $set: _.pick(req.body, ['name', 'email', 'password', 'phone']) }, 
+    { new: true },
+  );
+  if (!user) return res.status(400).send('User not found.');
+
+  // const salt = await bcrypt.genSalt(10);
+  // user.password = await bcrypt.hash(user.password, salt);
+  console.log(user);
+  await user.save();
+
+  res.send(_.pick(user, ['_id', 'name', 'email']));
+});
+
 
 module.exports = router; 
