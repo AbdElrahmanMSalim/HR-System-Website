@@ -28,12 +28,12 @@ const taskSchema = new mongoose.Schema({
     maxlength: 10,
     default:-1, // mean it did not evaluate yet.
   },
-  employee_id: {
+  employeeId: {
     type: Number,
     required: true,
     minlength: 1
   },
-  manager_id: {
+  managerId: {
     type: Number,
     required: true,
     minlength: 1
