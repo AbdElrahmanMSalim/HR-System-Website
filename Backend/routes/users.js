@@ -34,7 +34,7 @@ router.post('/', async (req, res) => {
   user = new User(_.pick(req.body, ['name', 'email', 'password', 'rePassword', 'phone']));
   // const salt = await bcrypt.genSalt(10);
   // user.password = await bcrypt.hash(user.password, salt);
-  console.log(user)
+
   await user.save();
 
   res.send(_.pick(user, ['_id', 'username', 'email']));
@@ -50,7 +50,7 @@ router.put('/', async (req, res) => {
   if (req.body.password != req.body.rePassword) return res.status(400).send('Password mismatch') //added
 
   let user = await User.findOneAndUpdate({
-    email: req.body.oldMail
+    email: req.body.email
   }, {
     $set: {
       name: req.body.name,

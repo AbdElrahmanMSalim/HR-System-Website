@@ -59,8 +59,8 @@ const User = mongoose.model('User', userSchema);
 function validateUser(user) {
   const schema = {
     name: Joi.string().min(5).max(50).required(),
-    oldMail: Joi.string().min(5).max(255).required().email(),
-    newMail: Joi.string().min(5).max(255).required().email(),
+    email: Joi.string().min(5).max(255).required().email(),
+    newMail: Joi.string().min(5).max(255).email(),
     password: Joi.string().min(5).max(255).required(), 
     rePassword: Joi.string().min(5).max(255).required(),
     phone: Joi.number().min(7).required() //todo add the registeration 
