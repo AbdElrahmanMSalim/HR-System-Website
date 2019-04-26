@@ -45,12 +45,16 @@ const userSchema = new mongoose.Schema({
   tasks: [String],
   evaluation: Number,
   salary: Number,
-  role: String,
+  role: {
+    type: String,
+    enum: ['IT', 'CEO', 'HR', 'Employee', 'Manager'],
+    required: true //todo we need to add this to the route and the route validation
+  },
   isAdmin: Boolean //todo may need to come back
 });
 
 userSchema.methods.generateAuthToken = function() { 
-  const token = jwt.sign({ _id: this._id, isAdmin: this.isAdmin }, config.get('jwtPrivateKey'));
+  const token = jwt.sign({ _id: this._id, role: this.role }, config.get('jwtPrivateKey'));
   return token;
 }
 
@@ -63,7 +67,8 @@ function validateUser(user) {
     newMail: Joi.string().min(5).max(255).email(),
     password: Joi.string().min(5).max(255).required(), 
     rePassword: Joi.string().min(5).max(255).required(),
-    phone: Joi.number().min(7).required() //todo add the registeration 
+    phone: Joi.number().min(7).required(), //todo add the registeration 
+    role: Joi.string().required().valid('IT', 'CEO', 'HR', 'Employee', 'Manager'),
   };
 
   return Joi.validate(user, schema);
