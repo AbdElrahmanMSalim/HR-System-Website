@@ -67,7 +67,7 @@ function validateUser(user) {
     newMail: Joi.string().min(5).max(255).email(),
     password: Joi.string().min(5).max(255).required(), 
     rePassword: Joi.string().min(5).max(255).required(),
-    phone: Joi.number().min(7).required(), //todo add the registeration 
+    phone: Joi.string().min(7).max(15).required(),
     role: Joi.string().required().valid('IT', 'CEO', 'HR', 'Employee', 'Manager'),
   };
 

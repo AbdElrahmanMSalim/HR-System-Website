@@ -1223,3 +1223,5 @@
 {"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-28T15:19:28.332Z"}
 {"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-28T15:19:47.093Z"}
 {"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-28T15:19:48.109Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-28T15:50:16.187Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-28T15:50:17.203Z"}
