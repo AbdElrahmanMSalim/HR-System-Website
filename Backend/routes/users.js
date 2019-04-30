@@ -1,5 +1,6 @@
 const auth = require('../middleware/auth');
 const IT = require('../middleware/IT');
+const CEO = require('../middleware/CEO');
 const bcrypt = require('bcrypt');
 const _ = require('lodash');
 const { User, validate } = require('../models/user');
@@ -7,17 +8,17 @@ const express = require('express');
 const router = express.Router();
 
 
-router.get('/me', auth, async (req, res) => {
+router.get('/me', auth , async (req, res) => {
   const user = await User.findById(req.user._id).select('-password');
   res.send(user);
 });
 
-router.get('/', auth, async (req, res) => {
+router.get('/', [auth , CEO], async (req, res) => {
   const user = await User.find().select("-password");
   res.send(user);
 });
 
-router.get('/:roleToShow', auth, async (req, res) => {
+router.get('/:roleToShow', [auth , CEO], async (req, res) => {
   const rolesToShow = ['Employee', 'HR', 'CEO', 'Manager', 'IT']
   const roleToShow = rolesToShow.find((element) => {
     return element === req.params.roleToShow
@@ -57,24 +58,25 @@ router.put('/', [auth, IT], async (req, res) => {
 
   if (req.body.password != req.body.rePassword) return res.status(400).send('Password mismatch') //added
 
+  if (req.body.newMail) req.body.mail = req.body.newMail; // we use that only for development
+
   const salt = await bcrypt.genSalt(10);
   let user = await User.findOneAndUpdate({
     email: req.body.email
   }, {
     $set: {
       name: req.body.name,
-      email: req.body.newMail,
+      email: req.body.mail,
       password: await bcrypt.hash(req.body.password, salt),
-      phone: req.body.phone
-    }
+      phone: req.body.phone,
+      role :req.body.role
+       }
   }, {
     new: true
   });
   if (!user) return res.status(400).send('User not found.');
 
   
-  await user.save();
-
   res.send(_.pick(user, ['_id', 'name', 'email']));
 });
 
