@@ -1225,3 +1225,33 @@
 {"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-28T15:19:48.109Z"}
 {"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-28T15:50:16.187Z"}
 {"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-28T15:50:17.203Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-30T13:34:01.880Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-30T13:34:02.894Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-30T13:34:50.568Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-30T13:34:51.582Z"}
+{"message":"Unexpected string in JSON at position 30","stack":"SyntaxError: Unexpected string in JSON at position 30\n    at JSON.parse (<anonymous>)\n    at parse (E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\node_modules\\body-parser\\lib\\types\\json.js:89:19)\n    at E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\node_modules\\raw-body\\index.js:224:16)\n    at done (E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:182:13)\n    at endReadableNT (_stream_readable.js:1094:12)\n    at process._tickCallback (internal/process/next_tick.js:63:19)","expose":true,"statusCode":400,"status":400,"body":"{\n\t\"email\":\"ayman@gmail.com\"\n\t\"role\":\"IT\"\n\n}","type":"entity.parse.failed","level":"error","timestamp":"2019-04-30T13:38:20.738Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-30T13:39:05.692Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-30T13:39:06.707Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-30T13:47:38.830Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-30T13:47:39.844Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-30T13:48:13.415Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-30T13:48:14.429Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-30T13:58:46.129Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-30T13:58:47.146Z"}
+{"message":"Unexpected string in JSON at position 103","stack":"SyntaxError: Unexpected string in JSON at position 103\n    at JSON.parse (<anonymous>)\n    at parse (E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\node_modules\\body-parser\\lib\\types\\json.js:89:19)\n    at E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\node_modules\\body-parser\\lib\\read.js:121:18\n    at invokeCallback (E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\node_modules\\raw-body\\index.js:224:16)\n    at done (E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\node_modules\\raw-body\\index.js:213:7)\n    at IncomingMessage.onEnd (E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\node_modules\\raw-body\\index.js:273:7)\n    at IncomingMessage.emit (events.js:182:13)\n    at endReadableNT (_stream_readable.js:1094:12)\n    at process._tickCallback (internal/process/next_tick.js:63:19)","expose":true,"statusCode":400,"status":400,"body":"{\n\t\"email\":\"ahmed@gmail.com\",\n\t\"name\":\"Ahmed Nassar\",\n\t\"phone\": \"1235555055\",\n\t\"password\":\"123456789\"\n\t\"role\":\"IT\"\n\n}","type":"entity.parse.failed","level":"error","timestamp":"2019-04-30T13:59:43.611Z"}
+{"message":"bcrypt is not defined","stack":"ReferenceError: bcrypt is not defined\n    at router.post (E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\routes\\users.js:46:16)\n    at process._tickCallback (internal/process/next_tick.js:68:7)","level":"error","timestamp":"2019-04-30T14:00:05.366Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-30T14:00:54.636Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-30T14:00:55.650Z"}
+{"message":"bcrypt is not defined","stack":"ReferenceError: bcrypt is not defined\n    at router.post (E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\routes\\users.js:46:16)\n    at process._tickCallback (internal/process/next_tick.js:68:7)","level":"error","timestamp":"2019-04-30T14:00:56.581Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-30T14:02:31.467Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-30T14:02:32.481Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-30T14:02:54.490Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-30T14:02:55.506Z"}
+{"message":"console.Console.log is not a function","stack":"TypeError: console.Console.log is not a function\n    at router.post (E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\routes\\users.js:48:19)","level":"error","timestamp":"2019-04-30T14:03:01.297Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-30T14:03:15.323Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-30T14:03:16.338Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-30T14:04:29.247Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-30T14:04:30.264Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-04-30T14:05:26.112Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-04-30T14:05:27.127Z"}
+{"message":"bcrypt is not defined","stack":"ReferenceError: bcrypt is not defined\n    at router.post (E:\\programing\\projects\\My-projects\\HR system web\\HR-System-Website\\Backend\\routes\\auth.js:16:25)\n    at process._tickCallback (internal/process/next_tick.js:68:7)","level":"error","timestamp":"2019-04-30T14:09:17.015Z"}
