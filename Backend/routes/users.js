@@ -57,14 +57,14 @@ router.put('/', [auth, IT], async (req, res) => {
 
   if (req.body.password != req.body.rePassword) return res.status(400).send('Password mismatch') //added
 
-  
+  const salt = await bcrypt.genSalt(10);
   let user = await User.findOneAndUpdate({
     email: req.body.email
   }, {
     $set: {
       name: req.body.name,
       email: req.body.newMail,
-      password: req.body.password,
+      password: await bcrypt.hash(req.body.password, salt),
       phone: req.body.phone
     }
   }, {
@@ -72,8 +72,7 @@ router.put('/', [auth, IT], async (req, res) => {
   });
   if (!user) return res.status(400).send('User not found.');
 
-  // const salt = await bcrypt.genSalt(10);
-  // user.password = await bcrypt.hash(user.password, salt);
+  
   await user.save();
 
   res.send(_.pick(user, ['_id', 'name', 'email']));
