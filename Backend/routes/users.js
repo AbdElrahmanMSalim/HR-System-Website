@@ -13,7 +13,7 @@ router.get('/me', auth, async (req, res) => {
 });
 
 router.get('/', auth, async (req, res) => {
-  const user = await User.find();
+  const user = await User.find().select("-password");
   res.send(user);
 });
 
@@ -24,7 +24,7 @@ router.get('/:roleToShow', auth, async (req, res) => {
   });
   if(!roleToShow) return res.status(400).send('Bad Request.. Please provide a valid route params')
   
-  const user = await User.find({role: req.params.roleToShow})
+  const user = await User.find({role: req.params.roleToShow}).select("-password")
   res.send(user)
 });
 
