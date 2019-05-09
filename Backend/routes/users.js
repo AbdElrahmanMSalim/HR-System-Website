@@ -3,7 +3,7 @@ const IT = require('../middleware/IT');
 const CEO = require('../middleware/CEO');
 // const bcrypt = require('bcrypt');
 const _ = require('lodash');
-const { User, validate } = require('../models/user');
+const { User, validate, validateDel } = require('../models/user');
 const express = require('express');
 const router = express.Router();
 
@@ -51,9 +51,7 @@ router.post('/', [auth, IT], async (req, res) => {
 });
 
 router.put('/', [auth, IT], async (req, res) => {
-  const {
-    error
-  } = validate(req.body);
+  const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
   if (req.body.password != req.body.rePassword) return res.status(400).send('Password mismatch') //added
@@ -80,7 +78,10 @@ router.put('/', [auth, IT], async (req, res) => {
   res.send(_.pick(user, ['_id', 'name', 'email']));
 });
 
-router.delete('/', [auth, IT], async (req, res) => {
+router.delete('/', async (req, res) => {
+  const { error } = validateDel(req.body);
+  if (error) return res.status(400).send(error.details[0].message);
+
   email = req.body.email;
   let user = await User.findOne({
     email: email
