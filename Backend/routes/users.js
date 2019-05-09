@@ -78,18 +78,14 @@ router.put('/', [auth, IT], async (req, res) => {
   res.send(_.pick(user, ['_id', 'name', 'email']));
 });
 
-router.delete('/', async (req, res) => {
+router.delete('/', [auth, IT], async (req, res) => {
   const { error } = validateDel(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  email = req.body.email;
-  let user = await User.findOne({
-    email: email
+  const user = await User.findOneAndRemove({
+    email: req.body.email
   });
-  if (!user) return res.status(404).send("Wrong E-mail..")
-  const result = await User.remove({
-    email: email
-  })
-  res.send(result);
+  if (!user) return res.status(404).send("Wrong E-mail..");
+  res.send(user);
 })
 module.exports = router;
