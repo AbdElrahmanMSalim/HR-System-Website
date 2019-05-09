@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const auth = require('../middleware/auth');
 const IT = require('../middleware/IT');
 const CEO = require('../middleware/CEO');
@@ -29,13 +30,12 @@ router.get('/:roleToShow', [auth , CEO], async (req, res) => {
   res.send(user)
 });
 
-router.post('/', [auth, IT], async (req, res) => {
+router.post('/', async (req, res) => {
   const {
     error
   } = validate(req.body);
 
   if (error) return res.status(400).send(error.details[0].message);
-
   if (req.body.password != req.body.rePassword) return res.status(400).send('Password mismatch') //added
 
   let user = await User.findOne({
