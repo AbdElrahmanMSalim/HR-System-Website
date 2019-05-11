@@ -106,3 +106,12 @@
 {"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-09T07:44:44.613Z"}
 {"level":"info","message":"Listening on port 3000...","timestamp":"2019-05-09T07:45:45.558Z"}
 {"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-09T07:45:46.585Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-05-09T09:48:53.596Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-09T09:48:54.626Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-05-09T10:28:10.508Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-09T10:28:11.538Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-05-11T11:31:31.731Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-11T11:31:32.771Z"}
+{"message":"bcrypt is not defined","stack":"ReferenceError: bcrypt is not defined\n    at router.post (E:\\3rd\\SWE\\HR-System-Website\\Backend\\routes\\auth.js:16:25)\n    at process._tickCallback (internal/process/next_tick.js:68:7)","level":"error","timestamp":"2019-05-11T11:33:54.929Z"}
+{"level":"info","message":"Listening on port 3000...","timestamp":"2019-05-11T11:34:53.935Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-11T11:34:54.966Z"}

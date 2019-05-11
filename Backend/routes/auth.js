@@ -1,3 +1,4 @@
+const bcrypt = require('bcrypt');
 const Joi = require('joi');
 // const bcrypt = require('bcrypt');
 const _ = require('lodash');
