@@ -1,27 +1,25 @@
-const config = require ('config');
-const jwt = require ('jsonwebbtoken');
 const Joi = require ('joi');
 const mongoose = require ('mongoose');
 
 
 const reportSchema = new mongoose.Schema ({
-    report_id :{
+    reportId :{
         type : Number,
         required :true,
         minlength :1 ,
         unique :true 
     },   
-    hr_id :{
+    hrId :{
         type : Number,
         minlength :1 ,
         required :true
     },   
-    report_title :{
+    reportTitle :{
         type : String,
         required :true
      
     },   
-    report_text :{
+    reportText :{
         type : String,
         required :true
     }   
@@ -31,9 +29,10 @@ const Report = mongoose.model('Report', reportSchema);
 
 function validate(report) {
   const schema = {
-    report_id: Joi.number().min(1).required().integer(),
-    hr_id: Joi.number().min(1).required().integer(),
-    
+    reportId: Joi.number().min(1).required().integer(),
+    hrId: Joi.number().min(1).required().integer(),
+    reportTitle: Joi.string().required(),
+    reportText: Joi.string().required()
   };
 
   return Joi.validate(report, schema);
