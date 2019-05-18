@@ -184,3 +184,5 @@
 {"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-15T00:56:17.743Z"}
 =======
 >>>>>>> 1b7649be4c9ed7d7a43537020823914eebc20dc9
+{"level":"info","message":"Listening on port 3001...","timestamp":"2019-05-18T21:31:40.110Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-18T21:31:41.151Z"}
