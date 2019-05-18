@@ -1,10 +1,11 @@
-const bcrypt = require("bcrypt");
-const auth = require("../middleware/auth");
-const IT = require("../middleware/IT");
-const CEO = require("../middleware/CEO");
-const _ = require("lodash");
-const { User, validate, validateDel } = require("../models/user");
-const express = require("express");
+const bcrypt = require('bcrypt');
+const auth = require('../middleware/auth');
+const IT = require('../middleware/IT');
+const CEO = require('../middleware/CEO');
+// const bcrypt = require('bcrypt');
+const _ = require('lodash');
+const { User, validate, validateDel } = require('../models/user');
+const express = require('express');
 const router = express.Router();
 
 router.get("/me", auth, async (req, res) => {
@@ -33,12 +34,22 @@ router.get("/:roleToShow", [auth, CEO], async (req, res) => {
   res.send(user);
 });
 
+<<<<<<< HEAD
 router.post("/", async (req, res) => {
   const { error } = validate(req.body);
 
   if (error) return res.status(400).send(error.details[0].message);
   if (req.body.password != req.body.rePassword)
     return res.status(400).send("Password mismatch"); //added
+=======
+router.post('/', async (req, res) => {
+  const {
+    error
+  } = validate(req.body);
+
+  if (error) return res.status(400).send(error.details[0].message);
+  if (req.body.password != req.body.rePassword) return res.status(400).send('Password mismatch') //added
+>>>>>>> 1b7649be4c9ed7d7a43537020823914eebc20dc9
 
   let user = await User.findOne({
     email: req.body.email
@@ -61,9 +72,14 @@ router.post("/", async (req, res) => {
   res.send(_.pick(user, ["_id", "name", "email"]));
 });
 
+<<<<<<< HEAD
 router.put("/", [auth, IT], async (req, res) => {
   const { error } = validate(req.body);
   console.log(error);
+=======
+router.put('/', [auth, IT], async (req, res) => {
+  const { error } = validate(req.body);
+>>>>>>> 1b7649be4c9ed7d7a43537020823914eebc20dc9
   if (error) return res.status(400).send(error.details[0].message);
 
   if (req.body.password != req.body.rePassword)
@@ -94,7 +110,11 @@ router.put("/", [auth, IT], async (req, res) => {
   res.send(_.pick(user, ["_id", "name", "email"]));
 });
 
+<<<<<<< HEAD
 router.delete("/", [auth, IT], async (req, res) => {
+=======
+router.delete('/', [auth, IT], async (req, res) => {
+>>>>>>> 1b7649be4c9ed7d7a43537020823914eebc20dc9
   const { error } = validateDel(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -103,5 +123,9 @@ router.delete("/", [auth, IT], async (req, res) => {
   });
   if (!user) return res.status(404).send("Wrong E-mail..");
   res.send(user);
+<<<<<<< HEAD
 });
+=======
+})
+>>>>>>> 1b7649be4c9ed7d7a43537020823914eebc20dc9
 module.exports = router;
