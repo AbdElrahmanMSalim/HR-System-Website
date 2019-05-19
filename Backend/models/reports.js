@@ -3,9 +3,8 @@ const mongoose = require("mongoose");
 Joi.objectId = require("joi-objectid")(Joi);
 
 const reportSchema = new mongoose.Schema({
-  hrId: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User",
+  hrName: {
+    type: String,
     minlength: 1,
     required: true
   },
@@ -23,6 +22,9 @@ const Report = mongoose.model("Report", reportSchema);
 
 function validate(report) {
   const schema = {
+    hrName: Joi.string()
+      .min(1)
+      .required(),
     reportTitle: Joi.string().required(),
     reportText: Joi.string().required()
   };
