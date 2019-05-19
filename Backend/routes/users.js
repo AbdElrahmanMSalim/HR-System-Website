@@ -1,25 +1,32 @@
-const bcrypt = require('bcrypt');
-const auth = require('../middleware/auth');
-const IT = require('../middleware/IT');
-const CEO = require('../middleware/CEO');
-// const bcrypt = require('bcrypt');
-const _ = require('lodash');
-const { User, validate, validateExtra, validateDel } = require('../models/user');
-const express = require('express');
+const bcrypt = require("bcrypt");
+const auth = require("../middleware/auth");
+const IT = require("../middleware/IT");
+const CEO = require("../middleware/CEO");
+const _ = require("lodash");
+const {
+  User,
+  validate,
+  validateExtra,
+  validateDel
+} = require("../models/user");
+const express = require("express");
 const router = express.Router();
 
 router.get("/me", auth, async (req, res) => {
   const user = await User.findById(req.user._id).select("-password");
-  if(!user.department) return res.status(400).send('[Department, Photo, Address, Skills] are missing.');
+  if (!user.department)
+    return res
+      .status(400)
+      .send("[Department, Photo, Address, Skills] are missing.");
   res.send(user);
 });
 
-router.post("/me/missData", auth, async(req, res) =>{
+router.post("/me/missData", auth, async (req, res) => {
   const { error } = validateExtra(req.body);
-  if(error) return res.status(400).send(error.details[0].message);
+  if (error) return res.status(400).send(error.details[0].message);
 
   const user = await User.findOne({ _id: req.user._id });
-  if(user.department) return res.status(400).send('No missing data.');
+  if (user.department) return res.status(400).send("No missing data.");
 
   user.department = req.body.department;
   user.photo = req.body.photo;
@@ -53,8 +60,8 @@ router.get("/:roleToShow", [auth, CEO], async (req, res) => {
 
 router.post("/", async (req, res) => {
   const { error } = validate(req.body);
-
   if (error) return res.status(400).send(error.details[0].message);
+
   if (req.body.password != req.body.rePassword)
     return res.status(400).send("Password mismatch"); //added
 
@@ -79,7 +86,7 @@ router.post("/", async (req, res) => {
   res.send(_.pick(user, ["_id", "name", "email"]));
 });
 
-router.put('/', [auth, IT], async (req, res) => {
+router.put("/", [auth, IT], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
@@ -111,7 +118,7 @@ router.put('/', [auth, IT], async (req, res) => {
   res.send(_.pick(user, ["_id", "name", "email"]));
 });
 
-router.delete('/', [auth, IT], async (req, res) => {
+router.delete("/", [auth, IT], async (req, res) => {
   const { error } = validateDel(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
