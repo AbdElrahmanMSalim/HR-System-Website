@@ -23,7 +23,7 @@ const userSchema = new mongoose.Schema({
     minlength: 5,
     maxlength: 1024
   },
-  departement: {
+  department: {
     type: String,
     minlength: 5,
     maxlength: 1024
@@ -41,7 +41,7 @@ const userSchema = new mongoose.Schema({
     maxlength: 1024
   },
   skills: [String],
-  achievments: [String],
+  achievements: [String],
   tasks: [String],
   evaluation: Number,
   salary: Number,
@@ -74,6 +74,18 @@ function validateUser(user) {
   return Joi.validate(user, schema);
 }
 
+function validateExtra(use) {
+  const schema = {
+    department: Joi.string().required(),
+    photo: Joi.string().required(),
+    address: Joi.string().required(),
+    skills: Joi.array().items(Joi.string()).required(),
+    achievements: Joi.array().items(Joi.string()).required(),
+  };
+
+  return Joi.validate(user, schema);
+}
+
 function validateAuth(user) {
   const schema = {
     email: Joi.string().min(5).max(255).required().email(),
@@ -92,5 +104,6 @@ function validateDel(user) {
 
 exports.User = User; 
 exports.validate = validateUser;
+exports.validateExtra = validateExtra;
 exports.validateAuth = validateAuth;
 exports.validateDel = validateDel;
