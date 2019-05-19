@@ -74,13 +74,12 @@ function validateUser(user) {
   return Joi.validate(user, schema);
 }
 
-function validateExtra(use) {
+function validateExtra(user) {
   const schema = {
-    department: Joi.string().required(),
+    department: Joi.string().min(5).max(1024).required(),
     photo: Joi.string().required(),
-    address: Joi.string().required(),
+    address: Joi.string().min(5).max(1024).required(),
     skills: Joi.array().items(Joi.string()).required(),
-    achievements: Joi.array().items(Joi.string()).required(),
   };
 
   return Joi.validate(user, schema);
