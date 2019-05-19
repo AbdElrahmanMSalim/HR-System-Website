@@ -21,6 +21,15 @@ router.get("/me", auth, async (req, res) => {
   res.send(user);
 });
 
+router.get("/:id", auth, async (req, res) => {
+  const user = await User.findById(req.params.id).select("-password");
+  if (!user.department)
+    return res
+      .status(400)
+      .send("[Department, Photo, Address, Skills] are missing.");
+  res.send(user);
+});
+
 router.post("/me/missData", auth, async (req, res) => {
   const { error } = validateExtra(req.body);
   if (error) return res.status(400).send(error.details[0].message);

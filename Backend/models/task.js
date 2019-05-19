@@ -23,7 +23,7 @@ const taskSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: "Didn't start yet",
+    default: "Not Done",
     minlength: 5,
     maxlength: 50,
     enum: ["Done", "Not Done"]
@@ -31,7 +31,7 @@ const taskSchema = new mongoose.Schema({
   evaluation: {
     type: Number,
     minlength: 1,
-    maxlength: 10,
+    maxlength: 5,
     default: -1 // mean it did not evaluate yet.
   }
 });
@@ -62,7 +62,7 @@ function validateEvaluation(user) {
       .required(),
     evaluation: Joi.number()
       .min(1)
-      .max(10)
+      .max(5)
       .required()
   };
 

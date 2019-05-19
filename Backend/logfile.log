@@ -1,0 +1,13 @@
+{"level":"info","message":"Listening on port 3001...","timestamp":"2019-05-19T18:33:40.673Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-19T18:33:41.688Z"}
+{"level":"info","message":"Listening on port 3001...","timestamp":"2019-05-19T21:35:19.571Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-19T21:35:20.594Z"}
+{"message":"Task validation failed: status: `Didn't start yet` is not a valid enum value for path `status`.","errors":{"status":{"message":"`Didn't start yet` is not a valid enum value for path `status`.","name":"ValidatorError","properties":{"message":"`{VALUE}` is not a valid enum value for path `{PATH}`.","type":"enum","enumValues":["Done","Not Done"],"path":"status","value":"Didn't start yet"},"kind":"enum","path":"status","value":"Didn't start yet","$isValidatorError":true}},"_message":"Task validation failed","stack":"ValidationError: Task validation failed: status: `Didn't start yet` is not a valid enum value for path `status`.\n    at new ValidationError (C:\\Users\\AbdEl\\Desktop\\HR System\\Backend\\node_modules\\mongoose\\lib\\error\\validation.js:27:11)\n    at model.Document.invalidate (C:\\Users\\AbdEl\\Desktop\\HR System\\Backend\\node_modules\\mongoose\\lib\\document.js:1656:32)\n    at C:\\Users\\AbdEl\\Desktop\\HR System\\Backend\\node_modules\\mongoose\\lib\\document.js:1528:17\n    at Immediate.<anonymous> (C:\\Users\\AbdEl\\Desktop\\HR System\\Backend\\node_modules\\mongoose\\lib\\schematype.js:785:9)\n    at runCallback (timers.js:705:18)\n    at tryOnImmediate (timers.js:676:5)\n    at processImmediate (timers.js:658:5)","name":"ValidationError","level":"error","timestamp":"2019-05-19T21:35:23.297Z"}
+{"level":"info","message":"Listening on port 3001...","timestamp":"2019-05-19T21:36:35.763Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-19T21:36:36.779Z"}
+{"level":"info","message":"Listening on port 3001...","timestamp":"2019-05-19T21:37:18.684Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-19T21:37:19.702Z"}
+{"level":"info","message":"Listening on port 3001...","timestamp":"2019-05-19T21:37:25.651Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-19T21:37:26.679Z"}
+{"level":"info","message":"Listening on port 3001...","timestamp":"2019-05-19T21:39:30.449Z"}
+{"level":"info","message":"Connected to mongodb://localhost/HR...","timestamp":"2019-05-19T21:39:31.470Z"}
