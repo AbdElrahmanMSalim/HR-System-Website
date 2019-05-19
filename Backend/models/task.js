@@ -23,10 +23,10 @@ const taskSchema = new mongoose.Schema({
   },
   status: {
     type: String,
-    default: "Not Done",
+    default: "NotDone",
     minlength: 5,
     maxlength: 50,
-    enum: ["Done", "Not Done"]
+    enum: ["Done", "NotDone"]
   },
   evaluation: {
     type: Number,
@@ -70,7 +70,7 @@ function validateStatus(user) {
   const schema = {
     status: Joi.string()
       .required()
-      .valid("Done", "Not Done")
+      .valid("Done", "NotDone")
   };
 
   return Joi.validate(user, schema);
