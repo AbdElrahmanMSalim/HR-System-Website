@@ -3,14 +3,6 @@ const mongoose = require("mongoose");
 Joi.objectId = require("joi-objectid")(Joi);
 
 const suggestionSchema = new mongoose.Schema({
-  date: {
-    type: Date,
-    required: true
-  },
-  isSuggest: {
-    type: Boolean,
-    required: true
-  },
   text: {
     type: String,
     required: true
@@ -25,8 +17,6 @@ function validate(suggestion) {
       .min(1)
       .required()
       .integer(),
-    date: Joi.date().required(),
-    isSuggest: Joi.boolean().required(),
     text: Joi.string().required()
   };
 

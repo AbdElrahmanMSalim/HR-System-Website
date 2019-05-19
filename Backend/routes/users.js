@@ -1,7 +1,9 @@
+const { Report } = require("../models/reports");
+const { Suggestion } = require("../models/suggestions_complaints");
 const bcrypt = require("bcrypt");
 const auth = require("../middleware/auth");
 const IT = require("../middleware/IT");
-const CEO = require("../middleware/CEO");
+const ManagerOrHR = require("../middleware/ManagerOrHR");
 const _ = require("lodash");
 const {
   User,
@@ -46,12 +48,12 @@ router.post("/me/missData", auth, async (req, res) => {
   res.send(user);
 });
 
-router.get("/", [auth, CEO], async (req, res) => {
+router.get("/", [auth, IT], async (req, res) => {
   const user = await User.find().select("-password");
   res.send(user);
 });
 
-router.get("/:roleToShow", [auth, CEO], async (req, res) => {
+router.get("/role/:roleToShow", [auth, ManagerOrHR], async (req, res) => {
   const rolesToShow = ["Employee", "HR", "CEO", "Manager", "IT"];
   const roleToShow = rolesToShow.find(element => {
     return element === req.params.roleToShow;
@@ -59,11 +61,20 @@ router.get("/:roleToShow", [auth, CEO], async (req, res) => {
   if (!roleToShow)
     return res
       .status(400)
-      .send("Bad Request.. Please provide a valid route params");
+      .send("Bad Request.. Please provide a valid role to show in the params");
 
   const user = await User.find({ role: req.params.roleToShow }).select(
     "-password"
   );
+
+  if (req.user.role === "Manager") {
+    const reports = await Report.find({});
+
+    const suggs = await Suggestion.find({});
+
+    return res.send(user, reports, suggs);
+  }
+
   res.send(user);
 });
 

@@ -23,7 +23,6 @@ const Report = mongoose.model("Report", reportSchema);
 
 function validate(report) {
   const schema = {
-    hrId: Joi.objectId().required(),
     reportTitle: Joi.string().required(),
     reportText: Joi.string().required()
   };
