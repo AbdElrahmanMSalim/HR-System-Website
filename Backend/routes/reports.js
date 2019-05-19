@@ -9,7 +9,9 @@ router.post("/", [auth, HR], async (req, res) => {
   const { error } = validate(req.body);
   if (error) return res.status(400).send(error.details[0].message);
 
-  const report = new Report(req.body);
+  const report = new Report(
+    _.pick(req.body, ["hrName", "reportTitle", "reportText"])
+  );
   await report.save();
 
   res.send(report);

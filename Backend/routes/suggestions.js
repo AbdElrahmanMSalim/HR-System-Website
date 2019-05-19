@@ -1,6 +1,7 @@
 const _ = require("lodash");
+const HR = require("../middleware/HR");
 const auth = require("../middleware/auth");
-const { Suggestion, validate } = require("../models/suggestions");
+const { Suggestion, validate } = require("../models/suggestions_complaints");
 const express = require("express");
 const router = express.Router();
 

@@ -57,9 +57,6 @@ function validateTask(user) {
 
 function validateEvaluation(user) {
   const schema = {
-    taskId: Joi.objectId()
-      .min(1)
-      .required(),
     evaluation: Joi.number()
       .min(1)
       .max(5)
@@ -71,9 +68,6 @@ function validateEvaluation(user) {
 
 function validateStatus(user) {
   const schema = {
-    taskId: Joi.objectId()
-      .min(1)
-      .required(),
     status: Joi.string()
       .required()
       .valid("Done", "Not Done")
