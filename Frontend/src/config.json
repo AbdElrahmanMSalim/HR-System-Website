@@ -1,0 +1,8 @@
+{
+  "apiUrl": "http://localhost:3001/api/users",
+  "loginUrl": "http://localhost:3001/api/auth",
+  "suggestionUrl": "http://localhost:3001/api/users/suggestions",
+  "reportUrl": "http://localhost:3001/api/users/reports",
+  "roleEmployee": "http://localhost:3001/api/users/role/Employee",
+  "taskUrl": "http://localhost:3001/api/tasks"
+}

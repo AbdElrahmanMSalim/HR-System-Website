@@ -1,0 +1,27 @@
+.tasks-form input {
+  display: inline-block !important;
+  width: 90% !important;
+}
+.add_button,
+.add-task {
+  width: 10%;
+  margin-bottom: 5px;
+  background-color: #17a2b8 !important;
+  border: 1px solid #17a2b8 !important;
+}
+.add_button:hover,
+.add-task:hover {
+  color: white;
+  background-color: rgb(48, 48, 48) !important;
+  border: 1px solid #17a2b8;
+}
+.Done {
+  color: #fff;
+  background-color: #28a745;
+  border-color: #28a745;
+}
+.NotDone {
+  color: #fff;
+  background-color: #dc3545;
+  border-color: #dc3545;
+}
