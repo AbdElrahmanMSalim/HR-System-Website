@@ -1,4 +1,5 @@
 const HR = require("../middleware/HR");
+const Manager = require("../middleware/Manager");
 const _ = require("lodash");
 const auth = require("../middleware/auth");
 const { Report, validate } = require("../models/reports");
@@ -14,6 +15,11 @@ router.post("/", [auth, HR], async (req, res) => {
   );
   await report.save();
 
+  res.send(report);
+});
+
+router.get("/", [auth, Manager], async (req, res) => {
+  const report = await Report.find();
   res.send(report);
 });
 

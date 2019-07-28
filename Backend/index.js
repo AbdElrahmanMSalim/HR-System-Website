@@ -1,10 +1,13 @@
 const winston = require("winston");
 const express = require("express");
+var cors = require("cors");
+
 const app = express();
+app.use(cors());
 
 require("./startup/logging")();
 app.use(function(req, res, next) {
-  res.setHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+  res.setHeader("Access-Control-Allow-Origin", "*");
   next();
 });
 require("./startup/routes")(app);
